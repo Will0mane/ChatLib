@@ -2,6 +2,7 @@
 Send messages in a good way!
 
 INSTALLATION:
+[![](https://jitpack.io/v/Will0mane/ChatLib.svg)](https://jitpack.io/#Will0mane/ChatLib)
 You can use either maven or gradle to import
 this library in your project.
 Take a look at the jitpack page above.

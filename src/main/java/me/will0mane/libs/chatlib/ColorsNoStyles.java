@@ -36,7 +36,7 @@ public enum ColorsNoStyles {
         return d;
     }
 
-    public static String oldChatColor(willocore.willocore.chat.ChatColors chatColors){
+    public static String oldChatColor(ChatColors chatColors){
         return ChatColor.translateAlternateColorCodes('&',
                 "&" + chatColors.getColor(""));
     }

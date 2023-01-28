@@ -1,5 +1,7 @@
 package me.will0mane.libs.chatlib;
 
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -16,6 +18,14 @@ public class ChatUtils {
         for(String s : to_translate){
             p.sendMessage(translate(s));
         }
+    }
+
+    public static void sendTranslatedTitle(Player player, String title, String subtitle, int in, int stay, int out){
+        player.sendTitle(translate(title), translate(subtitle), in, stay, out);
+    }
+
+    public static void sendTranslatedActionBar(Player player, String actionbar){
+        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(translate(actionbar)));
     }
 
     public static net.md_5.bungee.api.chat.TextComponent translateCustom(ChatMessage message){

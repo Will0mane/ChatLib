@@ -5,9 +5,12 @@ INSTALLATION:
 
 [![](https://jitpack.io/v/Will0mane/ChatLib.svg)](https://jitpack.io/#Will0mane/ChatLib)
 
-You can use either maven or gradle to import
+You can either use maven or gradle to import
 this library in your project.
 Take a look at the jitpack page above.
+Note that you can also just copy the classes
+in your project if you don't have a library manager.
+This won't make you able to get the updates though.
 
 In order to use this lib's messages, you
 need to access the ChatUtils class which

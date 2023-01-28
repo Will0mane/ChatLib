@@ -1,0 +1,4 @@
+name: ChatLib
+version: '${project.version}'
+main: me.will0mane.libs.chatlib.ChatLib
+api-version: 1.17

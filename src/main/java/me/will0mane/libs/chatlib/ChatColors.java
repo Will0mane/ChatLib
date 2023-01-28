@@ -1,4 +1,4 @@
-package willocore.willocore.chat;
+package me.will0mane.libs.chatlib;
 
 import me.will0mane.libs.chatlib.ChatUtils;
 import org.bukkit.ChatColor;

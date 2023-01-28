@@ -9,7 +9,7 @@ import java.util.List;
 public class ChatUtils {
 
     public static String translate(String to_translate){
-        return willocore.willocore.chat.ChatColors.translate(to_translate);
+        return ChatColors.translate(to_translate);
     }
 
     public static void sendMessageTranslated(Player p, String... to_translate){

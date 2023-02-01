@@ -10,13 +10,13 @@ import java.util.List;
 
 public class ChatUtils {
 
-    public static String translate(String to_translate){
-        return ChatColors.translate(to_translate);
+    public static String translate(String string){
+        return ChatColors.translate(string);
     }
 
-    public static void sendMessageTranslated(Player p, String... to_translate){
-        for(String s : to_translate){
-            p.sendMessage(translate(s));
+    public static void sendMessageTranslated(Player player, String... string){
+        for(String value : string){
+            player.sendMessage(translate(value));
         }
     }
 
@@ -28,8 +28,8 @@ public class ChatUtils {
         player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(translate(actionbar)));
     }
 
-    public static net.md_5.bungee.api.chat.TextComponent translateCustom(ChatMessage message){
-        net.md_5.bungee.api.chat.TextComponent component = new net.md_5.bungee.api.chat.TextComponent(ChatUtils.translate(
+    public static TextComponent translateCustom(ChatMessage message){
+        TextComponent component = new TextComponent(ChatUtils.translate(
                 message.getMessage()
         ));
         if(message.getHoverEvent() != null){
@@ -49,25 +49,25 @@ public class ChatUtils {
 
     public static List<String> translateAList(List<String> lore){
         List<String> list = new ArrayList<>();
-        for(String s : lore){
-            String translated = translate(s);
+        for(String value : lore){
+            String translated = translate(value);
             list.add(translated);
         }
         return list;
     }
 
-    public static String getRainbowVersion(String to_rainbow){
+    public static String getRainbowVersion(String string){
         int done = 0;
-        String neu = "";
-        for(String s : to_rainbow.split("")){
+        StringBuilder builder = new StringBuilder();
+        for(String value : string.split("")){
             if(done >= ColorsNoStyles.values().length){
                 done = 0;
             }
             ColorsNoStyles colorsNoStyles = ColorsNoStyles.values()[done];
-            neu = neu + colorsNoStyles.getColor() + s;
+            builder.append(colorsNoStyles.getColor()).append(value);
             done++;
         }
-        return neu;
+        return builder.toString();
     }
     public static String getColoredBoolean(boolean bool){
         if(bool)
@@ -76,9 +76,9 @@ public class ChatUtils {
             return translate("%%red%%No");
     }
 
-    public static void sendMessageTranslated(CommandSender sender, String... to_translate){
-        for(String s : to_translate){
-            String translated = translate(s);
+    public static void sendMessageTranslated(CommandSender sender, String... strings){
+        for(String value : strings){
+            String translated = translate(value);
             sender.sendMessage(translated);
         }
     }

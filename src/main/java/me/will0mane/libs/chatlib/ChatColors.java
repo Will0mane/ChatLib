@@ -1,9 +1,8 @@
 package me.will0mane.libs.chatlib;
 
-import me.will0mane.libs.chatlib.ChatUtils;
 import org.bukkit.ChatColor;
 
-import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 public enum ChatColors {
 
@@ -67,16 +66,16 @@ public enum ChatColors {
     private final String r;
     private final String c;
     private final String d;
-    private final Function<String, String> f;
+    private final UnaryOperator<String> f;
 
-    ChatColors(String representing, String color, String data,Function<String, String> function){
+    ChatColors(String representing, String color, String data, UnaryOperator<String> function){
         r = representing;
         c = color;
         d = data;
         f = function;
     }
 
-    public Function<String, String> getReturns() {
+    public UnaryOperator<String> getReturns() {
         return f;
     }
 
@@ -94,25 +93,24 @@ public enum ChatColors {
             return getReturns().apply(color);
         else
             return c;
-
     }
 
-    public static String stripAllColors(String s){
+    public static String stripAllColors(String string){
         for(ChatColors colors : ChatColors.values()){
-            s = s.replace(colors.getRepresenting(), "");
+            string = string.replace(colors.getRepresenting(), "");
         }
-        return s;
+        return string;
     }
 
     public String getRepresenting() {
         return r;
     }
 
-    public static String translate(String to_translate) {
+    public static String translate(String string) {
         for(ChatColors chatColors : values()){
-            to_translate = to_translate.replace(chatColors.getRepresenting(), chatColors.getColor(
-                    stripAllColors(to_translate).replace("TheAlternativeGame >", "")));
+            string = string.replace(chatColors.getRepresenting(), chatColors.getColor(
+                    stripAllColors(string)));
         }
-        return to_translate;
+        return string;
     }
 }

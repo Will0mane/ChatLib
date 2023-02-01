@@ -26,8 +26,8 @@ public enum ColorsNoStyles {
     private final String c;
     private final String d;
 
-    ColorsNoStyles(String rapresenting, String color, String data){
-        r = rapresenting;
+    ColorsNoStyles(String representing, String color, String data){
+        r = representing;
         c = color;
         d = data;
     }
@@ -45,15 +45,15 @@ public enum ColorsNoStyles {
         return c;
     }
 
-    public String getRapresenting() {
+    public String getRepresenting() {
         return r;
     }
 
-    public static String translate(String to_translate) {
+    public static String translate(String string) {
         for(ColorsNoStyles chatColors : values()){
-            to_translate = to_translate.replace(chatColors.getRapresenting(), chatColors.getColor());
+            string = string.replace(chatColors.getRepresenting(), chatColors.getColor());
         }
-        return to_translate;
+        return string;
     }
 
 }
